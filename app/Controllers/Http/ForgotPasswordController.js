@@ -20,7 +20,7 @@ class ForgotPasswordController {
       type: 'forgotpassword',
     });
 
-    const resetPasswordUrl = `${Env.get('FRONT_URL')}/reset=?token=${token}`;
+    const resetPasswordUrl = `${Env.get('FRONT_URL')}/reset?token=${token}`;
 
     await Mail.send(
       'emails.forgotpassword',
