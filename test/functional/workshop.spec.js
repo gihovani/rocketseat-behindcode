@@ -33,10 +33,12 @@ test('it should be able to list workshops', async ({ assert, client }) => {
   const user = await Factory.model('App/Models/User').create();
   const workshop = await Factory.model('App/Models/Workshop').create({
     user_id: user.id,
+    section: 2,
   });
 
   const response = await client
     .get('/workshops')
+    .query({ section: workshop.section })
     .loginVia(user, 'jwt')
     .end();
 
