@@ -4,7 +4,7 @@ const Workshop = use('App/Models/Workshop');
 class WorkshopController {
   async index({ request }) {
     const section = request.input('section', 1);
-    console.log(section);
+
     const workshops = await Workshop.query()
       .where('section', section)
       .with('user', builder => {
